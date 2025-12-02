@@ -7,8 +7,8 @@
   makeWrapper,
   unzip,
 
-  jdk17,
-  openjfx,
+  openjdk21,
+  openjfx21,
 
   libGL,
   libXxf86vm,
@@ -16,9 +16,9 @@
 let
   pname = "craftland-launcher";
 
-  jdk = jdk17.override {
+  jdk = openjdk21.override {
     enableJavaFX = true;
-    openjfx_jdk = openjfx.override { withWebKit = true; };
+    openjfx_jdk = openjfx21.override { withWebKit = true; };
   };
 
   runtimeLibs = [
